@@ -1549,21 +1549,18 @@ const RoomServiceCard = memo(function ({
     [isSelectedRoom?.bookingDto?.laundryDataList, getUniqueLaudryItems]
   );
 
-  const handleViewHotelBillInvoice = useCallback(
-    (roomData) => {
-      const bookingRefNumber = roomData?.bookingDto?.bookingRefNumber;
+  const handleViewHotelBillInvoice = useCallback((roomData) => {
+    const bookingRefNumber = roomData?.bookingDto?.bookingRefNumber;
 
-      if (bookingRefNumber) {
-        sessionStorage.setItem(
-          `hotelBillInvoice-${bookingRefNumber}`,
-          JSON.stringify(roomData)
-        );
+    if (bookingRefNumber) {
+      sessionStorage.setItem(
+        `hotelBillInvoice-${bookingRefNumber}`,
+        JSON.stringify(roomData)
+      );
 
-        window.open(`/hotelBillInvoice/${bookingRefNumber}`, "_blank");
-      }
-    },
-    [customerGstNumber]
-  );
+      window.open(`/hotelBillInvoice/${bookingRefNumber}`, "_blank");
+    }
+  }, []);
   const handleViewHotelGstBillInvoice = useCallback(
     (roomData) => {
       const bookingRefNumber = roomData?.bookingDto?.bookingRefNumber;
