@@ -192,9 +192,20 @@ const Loginv2 = () => {
           backgroundPosition: "center",
           // filter: "blur(1px)",
           zIndex: -1,
+          transition: "opacity 1.3s ease-in-out",
+          opacity: 0,
+        },
+        "&.loaded::before": {
+          opacity: 1,
         },
       }}
     >
+      <img
+        src={hotelImage}
+        alt="hidden loader"
+        style={{ display: "none" }}
+        onLoad={(e) => e?.target?.parentElement?.classList?.add("loaded")}
+      />
       <Box
         sx={{
           width: "900px",
