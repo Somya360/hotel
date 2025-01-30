@@ -29,7 +29,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogTitle from "@mui/material/DialogTitle";
 
 // import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+// import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Logout from "@mui/icons-material/Logout";
 import CloseIcon from "@mui/icons-material/Close";
 import LockResetIcon from "@mui/icons-material/LockReset";
@@ -41,6 +41,7 @@ import { styled } from "@mui/material/styles";
 import logo from "../../img/logo.svg";
 import { useChangePasswordMutation } from "../../services/login";
 import LoadingComponent from "../../components/LoadingComponent";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 const StyledHeaderBox = styled(Box, {
   shouldForwardProp: (prop) => prop !== "open",
@@ -48,12 +49,13 @@ const StyledHeaderBox = styled(Box, {
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  background: `linear-gradient(to right, white, ${theme.palette.primary.main})`,
+  // background: `linear-gradient(to right, white, ${theme.palette.primary.main})`,
   boxShadow: theme.shadows[2],
   position: "sticky",
   top: 0,
-  zIndex: theme.zIndex.appBar,
+  zIndex: theme.zIndex.appBar + 1,
   px: 1,
+  backgroundColor: "#ffffff",
 }));
 
 const Header = () => {
@@ -133,13 +135,19 @@ const Header = () => {
       <img
         src={logo}
         alt="Logo"
-        width="300"
+        // width="300"
         // style={{
         //   cursor:
         //     JSON.parse(sessionStorage.getItem("data")).userType === SUPER_ADMIN
         //       ? "pointer"
         //       : "none",
         // }}
+        style={{
+          width: "270px",
+          height: "55px",
+          objectFit: "contain",
+          display: "block",
+        }}
       />
       {/* <Typography>hotel</Typography> */}
       <Box
@@ -232,21 +240,29 @@ const Header = () => {
             alignItems: "center",
             gap: 1,
             position: "relative",
-            "&:before": {
-              content: "''",
-              position: "absolute",
-              backgroundColor: "#D4CCE3",
-              top: 10,
-              bottom: 10,
-              width: "1px",
-              marginLeft: -5,
-            },
+            // bgcolor: "#f80a39",
+            // bgcolor: "#0893e8",
+            background:
+              "linear-gradient(to right, #0d64d4, #1951c6, #253db6, #2e26a5, #350492)",
+            py: "2px",
+            borderTopLeftRadius: "21px",
+            borderBottomLeftRadius: "21px",
+            mb: "2px",
+            // "&:before": {
+            //   content: "''",
+            //   position: "absolute",
+            //   backgroundColor: "#D4CCE3",
+            //   top: 10,
+            //   bottom: 10,
+            //   width: "1px",
+            //   marginLeft: -2.3,
+            // },
           }}
         >
           <Avatar
             alt="avatar"
             // src={JSON.parse(sessionStorage.getItem("data")).imageUrl}
-            sx={{ width: 48, height: 48 }}
+            sx={{ width: 33, height: 33, ml: "4px" }}
           />
           <Box
             sx={{
@@ -260,19 +276,34 @@ const Header = () => {
             <Typography
               sx={{
                 fontWeight: 600,
-                fontSize: 20,
+                fontSize: 14,
                 letterSpacing: 1,
+                // color: "#4C2922 !important",
               }}
             >
               {JSON.parse(sessionStorage.getItem("data"))?.userName}
             </Typography>
-            <Box sx={{ display: "flex", gap: 1 }}>
-              <Typography sx={{ fontSize: 14, letterSpacing: 1 }}>
+            <Box sx={{ display: "flex", gap: 0.7 }}>
+              <Typography
+                sx={{
+                  fontSize: 12.3,
+                  // letterSpacing: 1,
+                  fontWeight: 550,
+                  // color: "#4C2922 !important",
+                }}
+              >
                 {getUserType(
                   JSON.parse(sessionStorage.getItem("data"))?.roleType
                 )}
               </Typography>
-              <Typography sx={{ fontSize: 14, letterSpacing: 1 }}>
+              <Typography
+                sx={{
+                  fontSize: 12.3,
+                  // letterSpacing: 1,
+                  fontWeight: 550,
+                  // color: "#4C2922 !important",
+                }}
+              >
                 {!Boolean(
                   JSON.parse(sessionStorage.getItem("data"))?.roleType === ADMIN
                 ) &&
@@ -287,13 +318,13 @@ const Header = () => {
 
           <React.Fragment>
             <IconButton
-              sx={{ color: "#fff" }}
+              sx={{ color: "#ffffff !important" }}
               onClick={handleClick}
               aria-controls={open ? "account-menu" : undefined}
               aria-haspopup="true"
               aria-expanded={open ? "true" : undefined}
             >
-              <KeyboardArrowDownIcon />
+              <MoreVertIcon />
             </IconButton>
             <MenuComp
               anchorEl={anchorEl}

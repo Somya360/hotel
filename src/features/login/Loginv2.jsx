@@ -12,7 +12,7 @@ import { useLocation, useNavigate, Link as RouterLink } from "react-router-dom";
 
 import React from "react";
 import hotelImage from "../../img/hotel1.jpg";
-import logo from "../../img/logo.svg";
+// import logo from "../../img/logo.svg";
 // import { useTheme } from "@mui/material/styles";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
@@ -235,9 +235,9 @@ const Loginv2 = () => {
             // border: "10px solid black",
           }}
         >
-          <Box sx={{ mb: 1 }}>
+          {/* <Box sx={{ mb: 1 }}>
             <img src={logo} alt="Logo" width="300" />
-          </Box>
+          </Box> */}
           <Typography sx={{ color: "#fff" }}>WELCOME TO</Typography>
           <Typography sx={{ color: "#fff", fontWeight: "bold" }}>
             HOTEL MANAGEMENT SYSTEM

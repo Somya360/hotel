@@ -83,7 +83,7 @@ import { PaymentDialog } from "./GuestDashboard";
 import { useCancelRoomBookingFromBookingHistoryMutation } from "../../services/frontdeskBookingHistory";
 
 export const StyledCalendarIcon = styled(CalendarMonthIcon)({
-  color: "#9380B8",
+  color: "#1437a4",
 });
 
 const styles = {
@@ -521,7 +521,9 @@ const CustomRoomFilters = memo(function ({
                       width: 200,
                       height: 35,
                       backgroundColor: "rgba(255, 255, 255, 0.25)",
-                      color: "#B4B4B4",
+                      color: "#1437a4",
+                      fontSize: "14.5px",
+                      fontWeight: 550,
                     },
                     "& .MuiTextField-root": {
                       width: "100%",
@@ -549,7 +551,10 @@ const CustomRoomFilters = memo(function ({
                 width: "100%",
                 backgroundColor: "transparent",
                 ".MuiInputBase-root": {
-                  color: "#B4B4B4",
+                  // color: "#B4B4B4",
+                  color: "#1437a4",
+                  fontSize: "14.5px",
+                  fontWeight: 550,
                   background: "rgba(255, 255, 255, 0.25)",
                 },
               },
@@ -607,13 +612,13 @@ const CustomRoomFilters = memo(function ({
                   color: "#fff",
                 },
                 "& + .MuiAutocomplete-popper .MuiAutocomplete-option:hover": {
-                  backgroundColor: "#E9E5F1",
+                  backgroundColor: "#e1f0ff",
                   color: "#280071",
                   fontWeight: 600,
                 },
                 "& + .MuiAutocomplete-popper .MuiAutocomplete-option[aria-selected='true']:hover":
                   {
-                    backgroundColor: "#E9E5F1",
+                    backgroundColor: "#d9ecfe",
                     color: "#280071",
                     fontWeight: 600,
                   },
@@ -637,7 +642,7 @@ const CustomRoomFilters = memo(function ({
                 <Paper
                   sx={{
                     background: "#fff",
-                    color: "#B4B4B4",
+                    color: "#98aae3",
                     borderRadius: "10px",
                   }}
                   {...props}
@@ -665,7 +670,10 @@ const CustomRoomFilters = memo(function ({
                 width: "100%",
                 backgroundColor: "transparent",
                 ".MuiInputBase-root": {
-                  color: "#B4B4B4",
+                  // color: "#B4B4B4",
+                  color: "#1437a4",
+                  fontSize: "14.5px",
+                  fontWeight: 550,
                   background: "rgba(255, 255, 255, 0.25)",
                 },
               },
@@ -721,13 +729,13 @@ const CustomRoomFilters = memo(function ({
                   color: "#fff",
                 },
                 "& + .MuiAutocomplete-popper .MuiAutocomplete-option:hover": {
-                  backgroundColor: "#E9E5F1",
+                  backgroundColor: "#e1f0ff",
                   color: "#280071",
                   fontWeight: 600,
                 },
                 "& + .MuiAutocomplete-popper .MuiAutocomplete-option[aria-selected='true']:hover":
                   {
-                    backgroundColor: "#E9E5F1",
+                    backgroundColor: "#d9ecfe",
                     color: "#280071",
                     fontWeight: 600,
                   },
@@ -751,7 +759,7 @@ const CustomRoomFilters = memo(function ({
                 <Paper
                   sx={{
                     background: "#fff",
-                    color: "#B4B4B4",
+                    color: "#98aae3",
                     borderRadius: "10px",
                   }}
                   {...props}
@@ -780,17 +788,32 @@ const CustomRoomFilters = memo(function ({
             onClick={() => navigate("/frontdeskBookingHistory")}
             sx={{
               fontSize: "10px",
-              // wordWrap: "break-word",
-              // wordBreak: "break-all",
-              // whiteSpace: "none",
-              // paddingX: "0.65px",
               paddingY: "8px",
-              backgroundImage:
-                "linear-gradient(to right, #a4508b 0%, #5f0a87 100%)",
               color: "white",
-              "&:hover": {
-                backgroundImage:
-                  "linear-gradient(to right, #a4508b 10%, #5f0a87 90%)",
+              position: "relative",
+              overflow: "hidden",
+              zIndex: 1,
+              background:
+                "linear-gradient(to right, #0d64d4, #1951c6, #253db6, #2e26a5, #350492)",
+              "&::after": {
+                content: '""',
+                position: "absolute",
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0,
+                zIndex: -1,
+                background:
+                  "linear-gradient(to left, #0d64d4, #1951c6, #253db6, #2e26a5, #350492)",
+                transition: "opacity 0.3s ease-in-out",
+                opacity: 0,
+              },
+              "&:hover::after": {
+                opacity: 1,
+              },
+              "& > *": {
+                zIndex: 2,
+                position: "relative",
               },
             }}
           >
@@ -964,7 +987,7 @@ const CustomFloorAccordion = memo(function ({
               gap: 2,
             }}
           >
-            <Box
+            {/* <Box
               sx={{
                 position: "absolute",
                 top: "50%",
@@ -980,6 +1003,37 @@ const CustomFloorAccordion = memo(function ({
                 borderRadius: "4px",
                 zIndex: 2,
               }}
+            /> */}
+            <Box
+              sx={{
+                width: "35px",
+                height: "25px",
+                position: "absolute",
+                top: "50%",
+                transform: "translateY(-50%)",
+                left: -1.5,
+                background:
+                  "linear-gradient(to right, #74bdf6, #52a4ee, #348be5, #2071d8, #2255c9)",
+                clipPath:
+                  "polygon(0% 0%, 70% 0%, 100% 50%, 70% 100%, 0% 100%, 30% 50%)",
+                zIndex: 1,
+                boxShadow:
+                  "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px",
+              }}
+            />
+            <Box
+              sx={{
+                width: "35px",
+                height: "25px",
+                position: "absolute",
+                top: "50%",
+                transform: "translateY(-50%)",
+                left: 8,
+                background: "linear-gradient(to right, #0d64d4, #350492)",
+                clipPath:
+                  "polygon(0% 0%, 70% 0%, 100% 50%, 70% 100%, 0% 100%, 30% 50%)",
+                zIndex: 2,
+              }}
             />
             <Box sx={{ width: "98.5%", ml: 1.3 }}>
               <Paper
@@ -992,7 +1046,9 @@ const CustomFloorAccordion = memo(function ({
                 }}
               >
                 <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
+                  expandIcon={
+                    <ExpandMoreIcon color="primary" sx={{ fontSize: "28px" }} />
+                  }
                   aria-controls="panel1-content"
                   id="panel1-header"
                   sx={{
@@ -1008,7 +1064,14 @@ const CustomFloorAccordion = memo(function ({
                   }}
                 >
                   <Typography
-                    sx={{ fontWeight: 550, letterSpacing: 1, fontSize: "18px" }}
+                    sx={{
+                      fontFamily: "'Urbanist', sans-serif",
+                      fontWeight: 550,
+                      letterSpacing: 1,
+                      fontSize: "18px",
+                      ml: "5px",
+                      mt: "2px",
+                    }}
                   >
                     {`Floor ${floorData?.floorNo}`}
                   </Typography>
